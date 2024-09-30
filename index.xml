@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ns0:WLANProfile xmlns:ns0="http://www.microsoft.com/networking/WLAN/profile/v1">
-    <ns0:name>BLIPS</ns0:name> 
+    <ns0:name>blips_FFFFFE</ns0:name> 
     <ns0:SSIDConfig>
         <ns0:SSID>
-            <ns0:name>blips_F0DA5E</ns0:name> 
+            <ns0:name>blips_FFFFFE</ns0:name> 
         </ns0:SSID>
     </ns0:SSIDConfig>
     <ns0:connectionType>ESS</ns0:connectionType>

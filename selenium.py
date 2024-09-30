@@ -9,10 +9,6 @@ from selenium.webdriver.support import expected_conditions
 #os.system("netsh wlan connect name='blips_'")
 
 
-
-
-
-
 # Seleção do Driver
 driver = webdriver.Chrome()
 
@@ -27,7 +23,7 @@ submit_btn = driver.find_element(By.TAG_NAME, value="button")
 
 
 # Inserção dos valores / Inserir o link
-input_box.send_keys("Vitor")
+input_box.send_keys("Paulo")
 submit_btn.click()
 
 # Timer
