@@ -1,6 +1,7 @@
 import xml.etree.ElementTree as ET
 
 def changeXML(cod, file):
+
     # Carregar o arquivo XML
     tree = ET.parse(file)
     root = tree.getroot()
@@ -23,3 +24,4 @@ def changeXML(cod, file):
 
     return print("Nome da rede e SSID alterados com sucesso.")
 
+#changeXML("blips_FFFFFF", "index.xml")

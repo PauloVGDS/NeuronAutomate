@@ -5,9 +5,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
-#os.system("netsh wlan show networks")
-#os.system("netsh wlan connect name='blips_'")
-
 
 # Seleção do Driver
 driver = webdriver.Chrome()
@@ -46,3 +43,15 @@ driver.get("http://127.0.0.1:5000/after")
 
 # Saindo do driver
 driver.quit()
+
+
+#from selenium import webdriver
+#
+## Seleção do Driver
+#driver = webdriver.Chrome()
+#
+## Acesso a URL
+#driver.get("http://192.168.4.1")
+#
+## Saindo do driver
+#driver.quit()

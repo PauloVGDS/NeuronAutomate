@@ -10,27 +10,23 @@ networks = networks.stdout.split("\n")
 
 # Filtar as informações importantes
 networks = list(filter(lambda x: x.startswith("SSID"), networks))
-neuronios = list()
 # Iterando sobre as redes
 for net in networks:
     # Adicionando na lista os neurônios
     if "blips_" in net:
-        neuronios.append(net[-12:])
+        neuronio = net[-12:]
 
-
-# Para cada neurônio:
-for cod in neuronios:
     # Mudar o perfil
-    changeXML(cod, "index.xml")
+    changeXML(neuronio, "index.xml")
     # Adicionar o perfil
     os.system(f"netsh wlan add profile filename=index.xml")
     # Conectar na rede do neurônio
-    os.system(f"netsh wlan connect {cod}")
+    os.system(f"netsh wlan connect {neuronio}")
     # Conectar o neurônio na rede
 
     # Enviar Créditos
 
     # Adicionar na Planilha
-    insertValues(cod, "Teste")
+    insertValues(neuronio, "Teste")
     
     

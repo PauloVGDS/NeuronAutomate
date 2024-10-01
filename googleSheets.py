@@ -1,10 +1,13 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import os
+
+DIR = os.path.dirname(os.path.realpath(__file__))
 
 def insertValues(cod, worksheet):
     # Carregar as credenciais
     credentials = Credentials.from_service_account_file(
-        rf'F:\main\config\apiCredential.json',
+        rf'{DIR}\config\apiCredential.json',
         scopes=['https://www.googleapis.com/auth/spreadsheets']
     )
 
@@ -21,3 +24,5 @@ def insertValues(cod, worksheet):
     worksheet.append_row([cod])
 
     return print("Valores adicionados com sucesso!")
+
+#insertValues("blips_FFFFFF", "Teste")
