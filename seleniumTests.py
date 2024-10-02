@@ -46,18 +46,19 @@ from selenium.webdriver.support import expected_conditions
 
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 import time
-def connectNeuron():
-    chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu") 
+
+def connectNeuron(): 
     # Seleção do Driver
-    driver = webdriver.Chrome(options=chrome_options)
+    driver = webdriver.Chrome()
 
     # Acesso a URL
-    driver.get("http://192.168.4.1/wi?s1=Pedro&p1=91204673&save=")
-    time.sleep(10)
+    driver.get("http://192.168.4.1/wi?s1=IDEAL&p1=Blips1521&save=")
+    # Timer condicional
+    WebDriverWait(driver, 15).until(
+        expected_conditions.presence_of_element_located((By.XPATH, "//div[text()='Conexão WiFi bem-sucedida']"))
+    )
+    #<div style="text-align:center;color:#008000;">Conexão WiFi bem-sucedida<br><br></div>
     # Saindo do driver
     driver.quit()
-    return "Neurônio conectado com sucesso."
+    return print("[✔] Neurônio conectado com sucesso.")

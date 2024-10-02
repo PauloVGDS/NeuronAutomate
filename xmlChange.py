@@ -23,6 +23,6 @@ def changeXML(cod, file):
     # Salvar as alterações no arquivo XML
     tree.write(rf"{DIR}\{file}", encoding='utf-8', xml_declaration=True)
 
-    return print("Arquivo XML alterado com sucesso.")
+    return print("[✔] Arquivo XML alterado com sucesso.")
 
 #changeXML("blips_FFaFFF", "index.xml")

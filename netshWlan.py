@@ -1,7 +1,7 @@
 from googleSheets import DIR
 import subprocess
 
-def findCode():
+def searchNetwork():
     # Procurar pelas redes por perto
     networks = subprocess.run(["netsh", "wlan", "show", "networks"], capture_output=True, text=True)
     # Pega o resultado do comando e divide em uma lista
@@ -20,9 +20,10 @@ def findCode():
 def connectNetwork(net, file="index.xml", new=True):
     # Condição para conexões novas
     if new:
-        subprocess.run(['netsh', 'wlan', 'add', 'profile', fr'filename="{DIR}\{file}"'], check=True,)
+        directory = fr"{DIR}\{file}"
+        subprocess.run(['netsh', 'wlan', 'add', 'profile', fr'filename={directory}'], check=True,)
     subprocess.run(['netsh', 'wlan', 'connect', f'name={net}'], check=True,)
-    return print(f"Rede {net} Conectada")
+    return print(f"[✔] Rede {net} Conectada")
 
 #print(findCode()[6:])
-#connectNetwork("Pedro", new=False)
+#connectNetwork("blips-CD9EEA-3818")

@@ -1,13 +1,14 @@
 import time
 from xmlChange import changeXML
-from googleSheets import insertValues, DIR
-from netshWlan import findCode, connectNetwork
+from googleSheets import insertValues
+from netshWlan import searchNetwork, connectNetwork
 from seleniumTests import connectNeuron
 from requestsConnection import sendCredits
 
 def completeTest():
     try:
-        neuronio = findCode()
+        # Busca as redes disponíveis ao redor
+        neuronio = searchNetwork()
         # Mudar o perfiltime.sleep(5)
         changeXML(neuronio, "index.xml")
         # Conectar na rede do neurônio
@@ -16,13 +17,15 @@ def completeTest():
         # Conectar o neurônio na rede
         connectNeuron()
         # Conectar na rede anterior
-        time.sleep(5)
-        connectNetwork("BLIPS", new=False)
-        time.sleep(5)
+        time.sleep(10)
+        connectNetwork("IDEAL", new=False)
+        time.sleep(10)
         # Enviar Créditos
         sendCredits(neuronio[6:12], 30)
         # Adicionar na Planilha
-        insertValues(neuronio[:12], "Teste")
+        #print("Onde deseja salvar?")
+        #aba = input("Nome da aba:")
+        insertValues(neuronio[6:12], "Simulador de Escada")
     except Exception as e:
         return print(e)
     

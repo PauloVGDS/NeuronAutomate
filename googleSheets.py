@@ -15,7 +15,7 @@ def insertValues(cod, worksheet):
     gc = gspread.authorize(credentials)
 
     # Acessar a planilha pelo ID
-    spreadsheet = gc.open_by_key('1yQHRiSyQi8WKiyfTxjSN2NPOwFM3hMtjHJ4WZ5L5_D8')
+    spreadsheet = gc.open_by_key('1sFqXEoL1KiW0Hb5lzcq55w61oTkcY1ZZPmn-uvWgwTo')
 
     # Selecionar a aba
     worksheet = spreadsheet.worksheet(worksheet)
@@ -23,6 +23,6 @@ def insertValues(cod, worksheet):
     # Adicionar valores em uma linha específica
     worksheet.append_row([cod])
 
-    return print("Planilha atualizada com sucesso!")
+    return print("[✔] Planilha atualizada com sucesso!")
 
 #insertValues("blips_FFFFFF", "Teste")

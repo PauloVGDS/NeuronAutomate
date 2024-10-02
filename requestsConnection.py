@@ -10,7 +10,7 @@ def sendCredits(code, credits):
 
     # Verificando se a requisição foi bem-sucedida
     if response.status_code == 200:
-        print("Créditos enviados com sucesso.")
+        print("[✔] Créditos enviados com sucesso.")
         return True
     else:
         print(f'Erro na requisição: {response.status_code}')
