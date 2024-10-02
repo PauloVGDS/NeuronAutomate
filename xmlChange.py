@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 from googleSheets import DIR
 
 def changeXML(cod, file):
-
+    
     # Carregar o arquivo XML
     tree = ET.parse(rf"{DIR}\{file}")
     root = tree.getroot()
@@ -23,7 +23,6 @@ def changeXML(cod, file):
     # Salvar as alterações no arquivo XML
     tree.write(rf"{DIR}\{file}", encoding='utf-8', xml_declaration=True)
 
-    return print("Nome da rede e SSID alterados com sucesso.")
+    return print("Arquivo XML alterado com sucesso.")
 
 #changeXML("blips_FFaFFF", "index.xml")
-print(DIR)

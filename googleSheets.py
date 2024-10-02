@@ -23,6 +23,6 @@ def insertValues(cod, worksheet):
     # Adicionar valores em uma linha específica
     worksheet.append_row([cod])
 
-    return print("Valores adicionados com sucesso!")
+    return print("Planilha atualizada com sucesso!")
 
 #insertValues("blips_FFFFFF", "Teste")
