@@ -18,18 +18,18 @@ def completeTest():
         connectNeuron()
         # Conectar na rede anterior
         time.sleep(10)
-        connectNetwork("IDEAL", new=False)
+        connectNetwork("BLIPS", new=False)
         time.sleep(10)
         # Enviar Créditos
         sendCredits(neuronio[6:12], 30)
         # Adicionar na Planilha
         #print("Onde deseja salvar?")
         #aba = input("Nome da aba:")
-        insertValues(neuronio[6:12], "Simulador de Escada")
+        insertValues(neuronio[6:12], "")
     except Exception as e:
         return print(e)
     
 if __name__ == "__main__":
     completeTest()
 
-#http://192.168.4.1/wi?s1=Pedro&p1=91204673&save=    
+#http://192.168.4.1/wi?s1=BLIPS&p1=Blips1521&save=    

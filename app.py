@@ -6,10 +6,6 @@ app = Flask(__name__)
 if __name__ == "__main__":
     app.run(debug=True)
 
-# The server can be initialized with 'Flask.run()'.
-# Debug mode can be activated with 'debug=True'.
-# Apparently we can use 'port' to specify the port of the server
-
 @app.route("/")
 def index():
     return render_template("index.html")
