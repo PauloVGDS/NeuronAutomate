@@ -23,11 +23,11 @@ def insertValues(cod, worksheet):
 
         # Adicionar valores em uma linha específica
         worksheet.append_row([cod])
-        print("\033[1;32m[✔] Planilha atualizada com sucesso!\033[m")
+        print("[✔] Planilha atualizada com sucesso!")
         return True
     
     except Exception as e:
-        print(f"\033[1;31mErro ao adicionar na planilha: \033[1;33m{e}\033[m")
+        print(f"Erro ao adicionar na planilha: {e}")
         return False
 
 #insertValues("blips_FFFFFF", "Teste")

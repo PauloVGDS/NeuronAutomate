@@ -9,25 +9,34 @@ def completeTest():
     try:
         # Busca as redes disponíveis ao redor
         neuronio = searchNetwork()
+        if not neuronio:
+            raise Exception
         # Mudar o perfiltime.sleep(5)
-        changeXML(neuronio, "index.xml")
+        if not changeXML(neuronio, "index.xml"):
+            raise Exception
+        
         # Conectar na rede do neurônio
-        connectNetwork(neuronio)
+        if not connectNetwork(neuronio):
+            raise Exception
         time.sleep(5)
         # Conectar o neurônio na rede
-        connectNeuron()
+        if not connectNeuron():
+            raise Exception
         # Conectar na rede anterior
-        time.sleep(10)
-        connectNetwork("BLIPS", new=False)
-        time.sleep(10)
-        # Enviar Créditos
-        sendCredits(neuronio[6:12], 30)
+        if not connectNetwork("BLIPS", new=False):
+            raise Exception
+        time.sleep(5)
         # Adicionar na Planilha
         #print("Onde deseja salvar?")
         #aba = input("Nome da aba:")
-        insertValues(neuronio[6:12], "")
+        if not insertValues(neuronio[6:12], "Simulador de Escada"):
+            raise Exception
+        # Enviar Créditos
+        if not sendCredits(neuronio[6:12], 30):
+            raise Exception
     except Exception as e:
         return print(e)
+    
     
 if __name__ == "__main__":
     completeTest()

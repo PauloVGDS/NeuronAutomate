@@ -17,12 +17,12 @@ def searchNetwork():
             if "blips-" in net:
                 neuronio = net[-17:]
         if neuronio != "":
-            print(f"\033[1;32mNeurônio: {neuronio} encontrado com sucesso!\033[m")
+            print(f"Neurônio: {neuronio} encontrado com sucesso!")
             return neuronio
-        print("\033[1;31mRede não encontrada!\033[m")
+        print("Rede não encontrada!")
         return False
     except Exception as e:
-        print(f"\033[1;31mRede não encontrada: {e}!\033[m")
+        print(f"Rede não encontrada: {e}!")
         return False
 
 
@@ -33,10 +33,10 @@ def connectNetwork(net, file="index.xml", new=True):
             directory = fr"{DIR}\templates\{file}"
             subprocess.run(['netsh', 'wlan', 'add', 'profile', fr'filename={directory}'], check=True,)
         subprocess.run(['netsh', 'wlan', 'connect', f'name={net}'], check=True,)
-        print(f"\033[1;32m[✔] Pedido de conexão para {net} enviado!\033[m")
+        print(f"[✔] Pedido de conexão para {net} enviado!")
         return True
     except Exception as e:
-        print(f"\033[1;31mErro ao conectar na rede: \033[1;33m{e}\033[m")
+        print(f"Erro ao conectar na rede: {e}")
         return False
 
 #searchNetwork()

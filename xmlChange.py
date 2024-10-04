@@ -22,9 +22,9 @@ def changeXML(cod, file="index.xml"):
 
         # Salvar as alterações no arquivo XML
         tree.write(rf"{DIR}\templates\{file}", encoding='utf-8', xml_declaration=True)
-        print("\033[1;32m[✔] Arquivo XML alterado com sucesso.\033[m")
+        print("[✔] Arquivo XML alterado com sucesso.")
         return True
     except Exception as e:
-        print(f"\033[1;31mErro a alterar o arquivo XML: \033[1;33m{e}\033[m")
+        print(f"Erro a alterar o arquivo XML: {e}")
         return False
 #changeXML("blips_FFaFFF", "index.xml")
