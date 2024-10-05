@@ -1,3 +1,3 @@
 @echo off
-"%USERPROFILE%/Documents/Develop/.venv/Scripts/python.exe" "%USERPROFILE%/Documents/Develop/NeuronAutomate/main.py"
+"%~dp0/.venv/Scripts/python.exe" "%~dp0/main.py"
 pause
