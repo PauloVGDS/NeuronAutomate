@@ -1,10 +1,11 @@
 from googleSheets import DIR
 import subprocess
+from time import sleep
 
-def searchNetwork():
+def findNetwork():
     
     try:
-        # Procurar pelas redes por perto
+        # Armazena as redes encontradas
         networks = subprocess.run(["netsh", "wlan", "show", "networks"], capture_output=True, text=True)
         # Pega o resultado do comando e divide em uma lista
         networks = networks.stdout.split("\n")
@@ -25,6 +26,16 @@ def searchNetwork():
         print(f"Rede não encontrada: {e}!")
         return False
 
+def searchNetwork():
+    try:
+        # Procurar pelas redes por perto
+        subprocess.run(["netsh", "interface", "set", "interface", "Wi-Fi", "admin=disable"], shell=True)
+        sleep(2)
+        subprocess.run(["netsh", "interface", "set", "interface", "Wi-Fi", "admin=enable"], shell=True)
+        return True
+    except Exception as e:
+        print(f"Erro: {e}!")
+        return False
 
 def connectNetwork(net, file="index.xml", new=True):
     # Condição para conexões novas
@@ -39,5 +50,6 @@ def connectNetwork(net, file="index.xml", new=True):
         print(f"Erro ao conectar na rede: {e}")
         return False
 
-#searchNetwork()
-#connectNetwork("blips-CD9EEA-3818")
+if __name__ == "__main__":
+    searchNetwork()
+    #connectNetwork("blips-CD9EEA-3818")

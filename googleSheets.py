@@ -29,5 +29,7 @@ def insertValues(cod, worksheet):
     except Exception as e:
         print(f"Erro ao adicionar na planilha: {e}")
         return False
+    
 
-#insertValues("blips_FFFFFF", "Teste")
+if __name__ == "__main__":
+    insertValues("blips_FFFFFF", "Teste")

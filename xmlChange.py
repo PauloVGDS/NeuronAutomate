@@ -27,4 +27,7 @@ def changeXML(cod, file="index.xml"):
     except Exception as e:
         print(f"Erro a alterar o arquivo XML: {e}")
         return False
-#changeXML("blips_FFaFFF", "index.xml")
+
+
+if __name__ == "__main__":
+    changeXML("blips_FFFFFF", "index.xml")
