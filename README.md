@@ -1,14 +1,28 @@
 # NeuronAutomate
-- Automatizar a conexão dos neurônios(ESP8266).
+- Automatizar o teste dos neurônios(ESP8266).
+  - Conexão na rede do neurônio
+  - Conexão do neurônio na rede
+  - Envio de créditos ao neurônio
+  - Envio do código do neurônio para planilha
 
-## Selenium
-- Usado para fazer solicitações HTTP
+# Tecnologias Usadas:
+**Selenium**
+- Usado para abrir o navegador, entrar no IP, inserir as informações da rede e conectar o neurônio.
 
-## Google Sheets API
-- Usado para definir as credenciais e permitir inserir os valores na planilha
+**Google Sheets API**
+- Usado para definir as credenciais e permitir acesso e armazenar o código do neurônio na planilha.
 
-## Subprocess
-- Usado para armazenar o output dos comandos
+**Subprocess**
+- Usado para executar os comandos Shell e armazenar os seus outputs.
 
-## XML
-- Não é possível conectar em uma rede sem que haja um perfil, logo para cada conexão alteramos o arquivo XML e o usamos como perfil para conectar na rede.
+**XML**
+- Conectar em uma rede necessita de um perfil de rede, logo para cada conexão alteramos o arquivo XML e o usamos como perfil para conectar na rede.
+
+**Requests**
+- Lib usada para fazer a solicitação da API do Grafana para enviar os créditos ao neurônio.
+
+**Arquivo .bat**
+-  Serve para executar o código de maneira fácil.
+
+**Em breve**
+- Utilização do Flask e Electron.js para criação de uma interface.
