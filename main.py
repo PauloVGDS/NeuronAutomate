@@ -5,7 +5,7 @@ from netshWlan import findNetwork, connectNetwork, searchNetwork
 from seleniumTests import connectNeuron
 from requestsConnection import sendCredits
 
-def completeTest(net, password, worksheet):
+def completeTest(net, password, worksheet, creditos=30):
     try:
         # Busca as redes disponíveis ao redor
         neuronio = findNetwork()
@@ -33,7 +33,7 @@ def completeTest(net, password, worksheet):
         if not insertValues(neuronio[6:12], worksheet):
             raise Exception
         # Enviar Créditos
-        if not sendCredits(neuronio[6:12], 30):
+        if not sendCredits(neuronio[6:12], creditos):
             raise Exception
     except Exception as e:
         return print(e)
