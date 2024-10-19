@@ -10,12 +10,10 @@ def sendCredits(code, credits):
 
     # Verificando se a request foi bem-sucedida
     if response.status_code == 200:
-        print("[✔] Créditos enviados com sucesso.")
+        print("\033[1;32m[✔] Créditos enviados com sucesso.\033[m")
         return True
     else:
-        print(f'Erro na requisição: {response.status_code}')
+        print(f'\033[1;33mErro na requisição: {response.status_code}\033[m')
         return False
 
-
-if __name__ == "__main__":
-    sendCredits("", 30)
+#sendCredits("", 30)
