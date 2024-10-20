@@ -26,6 +26,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
 }
 
 button {
@@ -54,6 +55,10 @@ nav {
   margin: 0;
 }
 
+h1 {
+  color: var(--primary);
+}
+
 nav img {
   width: 125px;
   margin-right: 10px;
@@ -75,11 +80,13 @@ nav img {
   border: 1px solid var(--primary);
   border-radius: 5px;
   color: var(--text);
+  height: 25px;
+  width: 125px;
 }
 
 #submit {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  gap: 50px;
 }

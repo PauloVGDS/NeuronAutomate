@@ -1,24 +1,30 @@
-from flask import Flask, render_template, request
-from time import sleep
-from modules import *
+from flask import Flask, render_template, request, url_for, redirect
+import modules as md
 
 
 app = Flask(__name__)
 if __name__ == "__main__":
     app.run(debug=True)
 
-@app.route("/")
+@app.route("/", methods=("GET", "POST"))
 def index():
-    worksheets = ["CNC 4040", "CNC 6040", "CNC 1060", "Flatbed"]
-    return render_template("index.html",worksheets=worksheets)
+    if request.method == "POST":
+        tabela = request.form["worksheets"]
+        creditos = request.form["creditsInput"]
+        rede = "BLIPS" if request.form["network"] == "" else request.form["network"]
+        senha = "Blips1521" if request.form["password"] == "" else request.form["password"]
 
-@app.route("/form", methods=("GET", "POST"))
-def form():
-    tabela = request.form["worksheets"]
-    creditos = request.form["creditsInput"]
-    rede = request.form["network"]
-    senha = request.form["password"]
+        if md.completeTest(rede, senha, tabela, creditos):
+            return redirect(url_for("taskdone"))
+            
+        return redirect(url_for("complete"))
+        
+    worksheets = md.getWorksheets()
+    return render_template("complete.html", worksheets=worksheets)
     
-    #completeTest(rede, senha, tabela, creditos)
-    return f"<h1 id='title'>{tabela}, {creditos}, {rede}, {senha}</h1>"
+    
+
+@app.route("/taskdone", methods=("GET", "POST"))
+def taskdone():
+    return render_template("taskdone.html")
 

@@ -3,52 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=double_arrow" />
     <title>Neuron Connection</title>
     <link rel="stylesheet" href="../static/style.css">
     <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
 </head>
 <body data-theme="dark">
-    <nav>
-        <img src="../static/Logo-white.webp" alt="brandLogo">
-        <h1>Neuron Connection</h1>
-    </nav>
-        
-        <form action="/form" method="post">
-            <div class="container">
-                <label for="worksheets">Selecione uma Tabela:</label>
-                <select name="worksheets" id="worksheets" class="input">
-                    {% for worksheet in worksheets %}
-                        <option value="CNC 4040">{{ worksheet }}</ption>
-                    {% endfor %}
-                </select>
-            </div>
-            
-            <div class="container">
-                <label for="creditsInput">Quantidade de Créditos:</label>
-                <input type="number" min="0" value="30" name="creditsInput" id="creditsInput" class="input">
-            </div>
-
-            <div class="container">
-                <label for="network">Rede:</label>
-                <input type="text" class="input" name="network" id="network">
-                <label for="password">Senha:</label>
-                <input type="text" class="input" name="password" id="password">
-            </div>
-
-            <div class="container">
-                <label for="stillConnect">Manter Conectando:</label>
-                <input type="checkbox" name="stillConnect" id="stillConnect" disabled>
-            </div>
-            
-            <div id="submit">
-                <button type="submit" id="submit">
-                    <span class="material-symbols-outlined">
-                    double_arrow</span>
-                </button>
-            </div>
-            
-        </form>
-        
+    {% block main %}{% endblock %}
 </body>
 </html>

@@ -1,42 +1,42 @@
+import modules as md
 from time import sleep
-from xmlChange import changeXML
-from googleSheets import insertValues
-from netshWlan import findNetwork, connectNetwork, searchNetwork
-from seleniumTests import connectNeuron
-from requestsConnection import sendCredits
+
 
 def completeTest(net, password, worksheet, creditos=30):
     try:
         # Busca as redes disponíveis ao redor
-        neuronio = findNetwork()
+        neuronio = md.findNetwork()
         while not neuronio:
-            searchNetwork()
-            neuronio = findNetwork()
+            md.searchNetwork()
+            sleep(2)
+            neuronio = md.findNetwork()
         # Mudar o perfil
-        if not changeXML(neuronio, "index.xml"):
+        if not md.changeXML(neuronio, "index.xml"):
             raise Exception
-        
         # Conectar na rede do neurônio
-        if not connectNetwork(neuronio):
+        if not md.connectNetwork(neuronio):
             raise Exception
         sleep(5)
         # Conectar o neurônio na rede
-        if not connectNeuron(net, password):
+        if not md.connectNeuron(net, password):
             raise Exception
         # Conectar na rede anterior
-        if not connectNetwork(net, new=False):
+        if not md.connectNetwork(net, new=False):
             raise Exception
         sleep(5)
         # Adicionar na Planilha
         #print("Onde deseja salvar?")
         #aba = input("Nome da aba:")
-        if not insertValues(neuronio[6:12], worksheet):
+        if not md.insertValues(neuronio[6:12], worksheet):
             raise Exception
         # Enviar Créditos
-        if not sendCredits(neuronio[6:12], creditos):
+        if not md.sendCredits(neuronio[6:12], creditos):
             raise Exception
+        
+        return True
     except Exception as e:
-        return print(e)
+        print(e)
+        return False
     
     
 if __name__ == "__main__":
@@ -44,5 +44,4 @@ if __name__ == "__main__":
     # Informações dinâmicas:
     # Rede de conexão
     # Planilha de armazenamento
-
-#http://192.168.4.1/wi?s1=&p1=&save=    
+    # Créditos(padrão=30)

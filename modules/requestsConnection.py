@@ -16,4 +16,5 @@ def sendCredits(code, credits):
         print(f'\033[1;33mErro na requisição: {response.status_code}\033[m')
         return False
 
-#sendCredits("", 30)
+if __name__ == "__main__":
+    sendCredits("", 30)

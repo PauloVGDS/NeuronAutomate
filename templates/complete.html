@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+
+{% block main %}
+
+    <nav>
+        <img src="../static/Logo-white.webp" alt="brandLogo">
+        <h1>Neuron Connection</h1>
+    </nav>
+        
+    <form action="/" method="post">
+        <div class="container">
+            <label for="worksheets">Selecione uma Tabela:</label>
+            <select name="worksheets" id="worksheets" class="input">
+                {% for worksheet in worksheets %}
+                    <option value="CNC 4040">{{ worksheet }}</ption>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="container">
+            <label for="creditsInput">Quantidade de Créditos:</label>
+            <input type="number" min="0" value="30" name="creditsInput" id="creditsInput" class="input">
+        </div>
+
+        <div class="container">
+            <label for="network">Rede:</label>
+            <input type="text" class="input" placeholder="BLIPS" name="network" id="network">
+            <label for="password">Senha:</label>
+            <input type="text" class="input" placeholder="Blips1521" name="password" id="password">
+        </div>
+
+        <div class="container">
+            <label for="stillConnect">Manter Conectando:</label>
+            <input type="checkbox" name="stillConnect" id="stillConnect" disabled>
+        </div>
+        
+        <div id="submit">
+            <button type="submit" id="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></svg>
+            </button>
+        </div>
+        
+    </form>
+    
+{% endblock %}
